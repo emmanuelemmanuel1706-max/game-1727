@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game 1727 - Register</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            width: 320px;
+            text-align: center;
+        }
+        h2 { margin-bottom: 20px; color: #00d4ff; }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #333;
+            border-radius: 6px;
+            background: #2a2a2a;
+            color: white;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #00d4ff;
+            color: #000;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover { background-color: #0099cc; }
+        #status { margin-top: 15px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Game 1727</h2>
+    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" id="gameForm">
+        <input type="text" name="username" id="user" placeholder="Username" required>
+        <input type="text" name="nickname" placeholder="Nickname" required>
+        <input type="password" name="password" placeholder="Password" required>
+        
+        <input type="hidden" name="generated_link" id="genLink">
+
+        <button type="submit">Create Account</button>
+    </form>
+    <div id="status"></div>
+</div>
+
+<script>
+    const form = document.getElementById('gameForm');
+    const userInput = document.getElementById('user');
+    const hiddenLink = document.getElementById('genLink');
+
+    form.addEventListener('submit', function() {
+        // This generates the link before the form sends
+        const username = userInput.value;
+        hiddenLink.value = "https://1727-game.github.io/login?sender=" + username;
+    });
+</script>
+
+</body>
+</html>
